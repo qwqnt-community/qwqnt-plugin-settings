@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/QwQ-002/types/main/plugin.schema.json",
   "name": "qwqnt-plugin_settings",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Support QwQNT plugins to add its settings page to settings of QQNT.",
   "type": "commonjs",
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "oxlint --fix --tsconfig ./tsconfig.json --type-aware src/**/*.js,src/**/*.ts",
     "build": "electron-vite build"
   },
-  "author": "Adpro",
+  "author": "風間青祢",
   "license": "MIT",
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^2.0.0",
