@@ -25,11 +25,11 @@ export class SettingInterface {
       const nav_item = (event.target as HTMLElement).closest('.nav-item');
       if (nav_item){
         // 内容显示
-        if (nav_item.parentElement!.classList.contains('qwqnt')) {
+        if(nav_item.parentElement!.classList.contains('qwqnt')){
           this.#setting_view!.style.display = 'none';
           this.#qwqnt_setting_view.style.display = 'block';
         }
-        else {
+        else if(!nav_item.parentElement!.classList.contains('liteloader')){
           this.#setting_view.style.display = 'block';
           this.#qwqnt_setting_view.style.display = 'none';
         }
