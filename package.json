@@ -12,18 +12,18 @@
   "author": "Adpro",
   "license": "MIT",
   "devDependencies": {
-    "@electron-toolkit/tsconfig": "^1.0.1",
-    "@qwqnt/types": "github:QwQ-002/types",
-    "@types/node": "^24.3.0",
-    "electron": "^37.4.0",
-    "electron-vite": "^4.0.0",
-    "oxlint": "^1.14.0",
+    "@electron-toolkit/tsconfig": "^2.0.0",
+    "@qwqnt/types": "github:qwqnt-community/types",
+    "@types/node": "^24.8.1",
+    "electron": "^38.3.0",
+    "electron-vite": "^4.0.1",
+    "oxlint": "^1.23.0",
     "unplugin-oxlint": "^0.7.5",
     "unplugin-zip-pack": "^1.0.3",
-    "vite": "^7.1.3",
+    "vite": "^7.1.10",
     "vite-plugin-cp": "^6.0.3"
   },
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.18.3",
   "qwqnt": {
     "name": "QwQNT 插件设置",
     "inject": {
