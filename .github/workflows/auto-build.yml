@@ -31,5 +31,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: qwqnt-plugin_settings.zip
+          files: qwqnt-plugin-settings.zip
           body_path: ./changeLog.md

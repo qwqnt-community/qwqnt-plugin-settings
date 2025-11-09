@@ -1,4 +1,4 @@
-# QwQNT-PluginSettings
+# qwqnt-plugin-settings
 
 本插件是 QwQNT 框架下，用于为插件提供设置页和配置读写的插件。
 
@@ -81,8 +81,8 @@ declare namespace PluginSettings {
 ```
     MIT License
 
-    QwQNT-PluginSettings
-    Copyright (C) 2025  Adpro
+    qwqnt-plugin-settings
+    Copyright (C) 2025  風間青祢
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal

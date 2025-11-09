@@ -1,6 +1,6 @@
 {
-  "$schema": "https://raw.githubusercontent.com/QwQ-002/types/main/plugin.schema.json",
-  "name": "qwqnt-plugin_settings",
+  "$schema": "https://raw.githubusercontent.com/qwqnt-community/types/main/plugin.schema.json",
+  "name": "qwqnt-plugin-settings",
   "version": "1.2.6",
   "description": "Support QwQNT plugins to add its settings page to settings of QQNT.",
   "type": "commonjs",
@@ -14,16 +14,17 @@
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^2.0.0",
     "@qwqnt/types": "github:qwqnt-community/types",
-    "@types/node": "^24.8.1",
-    "electron": "^38.3.0",
+    "@types/node": "^24.10.0",
+    "electron": "^39.1.1",
     "electron-vite": "^4.0.1",
-    "oxlint": "^1.23.0",
+    "oxlint": "^1.26.0",
+    "oxlint-tsgolint": "^0.5.1",
     "unplugin-oxlint": "^0.7.5",
     "unplugin-zip-pack": "^1.0.3",
-    "vite": "^7.1.10",
+    "vite": "^7.2.2",
     "vite-plugin-cp": "^6.0.3"
   },
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.20.0",
   "qwqnt": {
     "name": "QwQNT 插件设置",
     "inject": {
@@ -32,7 +33,7 @@
       "renderer": "./renderer/index.js"
     },
     "dependencies": {
-      "qwqnt-renderer_events": "^1.1.0"
+      "qwqnt-renderer-events": "^2.0.0"
     }
   }
 }
