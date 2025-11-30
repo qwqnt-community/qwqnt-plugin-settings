@@ -46,12 +46,13 @@ export class SettingInterface {
   async add(plugin: IQwQNTPlugin){
     const nav_item = document.querySelector('.setting-tab .nav-item')!.cloneNode(true);
     const view = document.createElement('div');
-    if(plugin.qwqnt?.icon){
-      const path = await QwQNTPluginSettings.parsePath(qwqnt.framework.plugins[plugin.name].meta.path, plugin.qwqnt.icon);
-      const plugin_thumb = qwqnt.framework.protocol.pathToStorageUrl(path);
-      const text = await appropriateIcon(plugin_thumb);
-      (nav_item as HTMLElement).querySelector('.q-icon')!.innerHTML = text;
-    }
+
+    const path = plugin.qwqnt?.icon ? qwqnt.framework.plugins[plugin.name].meta.path : __self.meta.path;
+    const parsedPath = await QwQNTPluginSettings.parsePath(path, plugin.qwqnt?.icon ?? './static/icon.svg');
+    const plugin_thumb = qwqnt.framework.protocol.pathToStorageUrl(parsedPath);
+    const text = await appropriateIcon(plugin_thumb);
+    (nav_item as HTMLElement).querySelector('.q-icon')!.innerHTML = text;
+
     (nav_item as HTMLElement).classList.remove('nav-item-active');
     (nav_item as HTMLElement).setAttribute('data-name', plugin.name);
     (nav_item as HTMLElement).querySelector('.name')!.textContent = plugin.qwqnt?.name ?? plugin.name;
