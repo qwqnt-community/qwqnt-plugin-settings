@@ -2,10 +2,6 @@ import { BaseElement } from '../element';
 
 
 export class Divider extends BaseElement {
-  constructor(){
-    super();
-  };
-
   getTemplate(){
     return /*html*/ `
       <slot></slot>
@@ -16,9 +12,7 @@ export class Divider extends BaseElement {
     return /*css*/ `
       :host {
         display: block;
-        border: unset;
-        margin: unset;
-        background-color: rgba(127, 127, 127, 0.15);
+        background-color: rgba(127, 127, 127, .15);
       }
 
       :host([data-direction="row"]) {

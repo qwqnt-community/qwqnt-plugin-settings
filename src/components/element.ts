@@ -18,6 +18,8 @@ export class BaseElement extends HTMLElement {
     this.update();
   };
 
+  disconnectedCallback(){};
+
   getTemplate(): string{
     throw new Error('getTemplate must be implemented by subclass.');
   };
@@ -32,20 +34,19 @@ export class BaseElement extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot!.innerHTML = this.getTemplate();
-    const element_sheet = new CSSStyleSheet();
-    const default_sheet = new CSSStyleSheet();
-    element_sheet.replaceSync(this.getStyles());
-    default_sheet.replaceSync(`
-      :host([is-disabled]), [is-disabled] {
-        opacity: 0.3;
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(`
+      :host([is-disabled]) {
+        opacity: .3;
         cursor: not-allowed;
         pointer-events: none;
       }
       :host(.hidden), .hidden {
         display: none !important;
       }
+      ${this.getStyles()}
     `);
-    this.shadowRoot!.adoptedStyleSheets = [default_sheet, element_sheet];
+    this.shadowRoot!.adoptedStyleSheets = [ sheet ];
   };
 
   setTitle(title){

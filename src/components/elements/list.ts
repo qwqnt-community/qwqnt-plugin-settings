@@ -3,15 +3,12 @@ import { Item } from './item';
 import { Divider } from './divider';
 
 export class List extends BaseElement {
-  _head: Item;
-  _title: HTMLHeadingElement;
-  _slot: HTMLSlotElement;
+  #head: Item = this.shadowRoot!.querySelector('setting-item')!;
+  #title = this.shadowRoot!.querySelector('h2')!;
+  #slot = this.shadowRoot!.querySelector('slot')!;
 
   constructor(){
     super();
-    this._head = this.shadowRoot!.querySelector('setting-item')!;
-    this._title = this.shadowRoot!.querySelector('h2')!;
-    this._slot = this.shadowRoot!.querySelector('slot')!;
     this.#setupEventListeners();
     this.#setupMutationObserver();
   };
@@ -44,11 +41,7 @@ export class List extends BaseElement {
       svg {
         width: 1rem;
         height: 1rem;
-        transform: rotate(0deg);
-        transition-duration: 0.2s;
-        transition-timing-function: ease;
-        transition-delay: 0s;
-        transition-property: transform;
+        transition: transform .2s ease;
       }
 
       :host([is-collapsible]) slot {
@@ -70,10 +63,7 @@ export class List extends BaseElement {
       }
 
       h2 {
-        box-sizing: border-box;
-        font-size: 100%;
-        font-style: inherit;
-        font-weight: inherit;
+        font: inherit;
         border: 0px;
         margin: 0px;
         padding: 0px;
@@ -88,7 +78,7 @@ export class List extends BaseElement {
   };
 
   #setupEventListeners(){
-    this._head.addEventListener('click', () => {
+    this.#head.addEventListener('click', () => {
       this.setActive(!this.getActive());
     });
   };
@@ -102,18 +92,18 @@ export class List extends BaseElement {
   };
 
   #updateTitle(){
-    this._title.textContent = this.getTitle();
+    this.#title.textContent = this.getTitle();
   };
 
   #updateLayout(){
-    this._head.classList.toggle('hidden', !this.getCollapsible());
+    this.#head.classList.toggle('hidden', !this.getCollapsible());
   };
 
   #updateDividers(){
     const direction = this.getDirection();
     const collapsible = this.getCollapsible();
     const dividers = this.querySelectorAll('setting-divider');
-    const children = this._slot.assignedElements() as BaseElement[];
+    const children = this.#slot.assignedElements() as BaseElement[];
     dividers.forEach(node => node.remove());
     children.forEach((node, index) => {
       const divider = document.createElement('setting-divider') as Divider;

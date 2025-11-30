@@ -1,10 +1,6 @@
 import { BaseElement } from '../element';
 
 export class Option extends BaseElement {
-  constructor(){
-    super();
-  };
-
   getTemplate(){
     return /*html*/ `
       <li>
@@ -36,25 +32,24 @@ export class Option extends BaseElement {
         display: flex;
         justify-content: space-between;
         border-radius: 4px;
-        box-sizing: border-box;
+        padding: 0px 8px;
         line-height: 24px;
         color: var(--text_primary);
         font-size: 12px;
         padding: 0px 8px;
-
-        &:hover {
-          background-color: var(--overlay_hover);
-        }
-
-        &:active {
-          background-color: var(--overlay_pressed);
-        }
+        cursor: pointer;
+      }
+      li:hover {
+        background-color: var(--overlay_hover);
+      }
+      li:active {
+        background-color: var(--overlay_pressed);
       }
 
       span {
         margin-right: 8px;
         overflow: hidden;
-        text-wrap: nowrap;
+        white-space: nowrap;
         text-overflow: ellipsis;
       }
 
@@ -64,9 +59,7 @@ export class Option extends BaseElement {
         width: 1em;
         height: 1em;
         color: var(--icon_primary);
-        position: relative;
-        right: -4px;
-        top: 7px;
+        margin: 7px -4px 0px 0px;
       }
     `;
   };

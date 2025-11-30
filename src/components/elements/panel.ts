@@ -1,10 +1,6 @@
 import { BaseElement } from '../element';
 
 export class Panel extends BaseElement {
-  constructor(){
-    super();
-  };
-
   getTemplate(){
     return /*html*/ `
       <slot></slot>

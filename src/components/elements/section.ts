@@ -1,12 +1,7 @@
 import { BaseElement } from '../element';
 
 export class Section extends BaseElement {
-  _title: HTMLHeadingElement;
-
-  constructor(){
-    super();
-    this._title = this.shadowRoot!.querySelector('h1')!;
-  };
+  #title = this.shadowRoot!.querySelector('h1')!;
 
   getTemplate(){
     return /*html*/ `
@@ -23,13 +18,12 @@ export class Section extends BaseElement {
         font-size: min(var(--font_size_3), 18px);
         line-height: min(var(--line_height_3), 24px);
         padding: 0px 16px;
-        margin-top: 0;
-        margin-bottom: 8px;
+        margin: 0px 0px 8px;
       }
     `;
   };
 
   update(){
-    this._title.textContent = this.getTitle();
+    this.#title.textContent = this.getTitle();
   };
 };
