@@ -2,7 +2,7 @@
 
 本插件是 QwQNT 框架下，用于为插件提供设置页和配置读写的插件。
 
-本插件依赖 `RendererEvents` 插件，请确保其安装。
+本插件依赖 `qwqnt-renderer-events` 插件，请确保其安装。
 
 ## 使用
 
